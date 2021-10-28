@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos - Flex Shrink</title>
+    <style>
+        .container {
+            display: flex;
+            border: 1px solid black;
+            max-width: 350px;
+            margin-bottom: 10px;
+        }
+
+        .item {
+            background-color: orange;
+            font-size: 24px;
+            text-align: center;
+            margin:  5px;
+           
+        }
+        .sh-1 {
+            flex-shrink: 1;
+        }
+        .fg-1 {
+            flex-grow: 1;
+        }
+        .sh-0 {
+            flex-shrink: 0;
+            flex-basis: 200px;
+        }
+        .sh-2 {
+            flex-shrink: 2;
+            flex-basis: 100px;
+            
+        }
+        .sh-3 {
+            flex-shrink: 3;
+            flex-basis: 100px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <p>Flex Shrink - 1</p>
+    <p>Comprime para que o elemento caiba no container</p>
+    <div class="container">
+        <div class="item sh-1 fg-1">A</div>
+        <div class="item sh-1 fg-1">B</div>
+        <div class="item sh-1 fg-1">C</div>
+        <div class="item sh-1 fg-1">D</div>
+        <div class="item sh-1 fg-1">E</div>
+    </div>
+
+    <div class="container">
+        <div class="item sh-1 fg-1">A</div>
+        <div class="item sh-1 fg-1">Lorem ipsum dolor sit amet, consectetur</div>
+        <div class="item sh-1 fg-1">C</div>
+        <div class="item sh-1 fg-1">D</div>
+        <div class="item sh-1 fg-1">E</div>
+    </div>
+
+    <p>Flex Shrink - 0 / flex-basis - 100px</p>
+    <p>Ele não mais respeita o container. Se o basis for maior, ele vai ignorar o container e ultrapassar a linha limite. Se alterar o shrink para 1, ele vai comprimir os elementos e tentar encaixar </p>
+    <div class="container">
+        <div class="item sh-0 fg-1">A</div>
+        <div class="item sh-0 fg-1">The generation</div>
+        <div class="item sh-0 fg-1">C Generation</div>
+        <div class="item sh-0 fg-1">DC Generation</div>
+        <div class="item sh-0 fg-1">E</div>
+    </div>
+        
+    <p>Flex Shrink - mix / flex-basis - 100px</p>
+    <p>Faz com que os elementos fiquem dentro do container</p>
+        <div class="container">
+            <div class="item sh-1 fg-1">A</div>
+            <div class="item sh-1 fg-1">Lorem ipsum dolor sit amet, consectetur</div>
+            <div class="item sh-2 fg-1">C</div>
+            <div class="item sh-2 fg-1">D</div>
+            <div class="item sh-3 fg-1">E</div>
+
+    
+</body>
+</html>
